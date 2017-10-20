@@ -1,15 +1,18 @@
 {
-  "name": "Front End",
+  "name": "Front End angular project",
   "homepage": "https://github.com/yayobyte/SGBD-ITM",
   "authors": [
     "Cristian Gutiérrez <yayobyte@gmail.com>"
   ],
   "description": "Front End Project",
-  "license": "MIT",
+  "license": "ITM",
   "dependencies": {
     "angular": "^1.5.8",
-    "angular-bootstrap": "^2.5.0",
     "angular-ui-router": "^1.0.10",
-    "moment": "^2.19.1"
+    "moment": "^2.19.1",
+    "bootstrap": "^3.3.7",
+    "bootswatch": "^3.3.7",
+    "jquery": "^3.2.1",
+    "reset-css": "^2.2.1"
   }
 }

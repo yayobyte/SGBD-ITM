@@ -1,0 +1,13 @@
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 220px;
+  background:
+    /* color overlay */
+    linear-gradient(
+      rgba(10, 110, 189, 0.45),
+      rgba(255, 255, 255, 0.45)
+    )
+}
