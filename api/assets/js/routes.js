@@ -12,6 +12,17 @@ angular.module('sgbd')
         }
       }
     })
+    .state('home', {
+      url: '/home',
+      title : 'Home',
+      views: {
+        'main' : {
+          controller : 'homeController',
+          controllerAs : '$ctrl',
+          templateUrl: '/views/home.ejs'
+        }
+      }
+    })
     .state('login', {
       url: '/login',
       title : 'Login',

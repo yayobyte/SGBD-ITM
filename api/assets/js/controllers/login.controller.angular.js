@@ -11,6 +11,6 @@ function LoginController ($state) {
   }
 
   function login () {
-    $state.go('user');
+    $state.go('home');
   }
 }

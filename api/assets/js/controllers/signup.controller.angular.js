@@ -6,6 +6,7 @@ function SignupController () {
   vm.login = login;
 
   function login () {
+
     $state.go('login');
   }
 }
