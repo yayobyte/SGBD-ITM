@@ -15,6 +15,12 @@ module.exports = {
       primaryKey: true,
       columnName : 'id'
     },
+    idPackage : {
+      type: 'integer',
+      defaultsTo : '',
+      columnName : 'id_paquete',
+      model : 'Package'
+    },
     approved : {
       type: 'boolean',
       defaultsTo: false,

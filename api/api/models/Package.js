@@ -16,14 +16,10 @@ module.exports = {
       columnName : 'id'
     },
     idUser : {
-      type: 'string',
+      type: 'integer',
       defaultsTo: '',
-      columnName : 'id_usuario'
-    },
-    idDocument : {
-      type: 'string',
-      defaultsTo: '',
-      columnName : 'id_documento'
+      columnName : 'id_usuario',
+      model : 'User'
     },
     uploadDate : {
       type: 'string',
@@ -37,6 +33,21 @@ module.exports = {
       type: 'string',
       defaultsTo: '',
       columnName : 'cantidad_de_documentos'
+    },
+    description : {
+      type: 'string',
+      defaultsTo: '',
+      columnName : "descripcion"
+    },
+    abstract : {
+      type: 'string',
+      defaultsTo: '',
+      columnName: 'abstract'
+    },
+    title : {
+      type: 'string',
+      defaultsTo: '',
+      columnName: 'titulo'
     }
   }
 };

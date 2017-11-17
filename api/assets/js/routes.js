@@ -34,6 +34,17 @@ angular.module('sgbd')
         }
       }
     })
+    .state('list', {
+      url: '/list',
+      title : 'List Documents',
+      views: {
+        'main' : {
+          controller : 'listDocumentsController',
+          controllerAs : '$ctrl',
+          templateUrl: '/views/listDocuments.ejs'
+        }
+      }
+    })
     .state('signup', {
       url: '/signup',
       title : 'Sign Up',

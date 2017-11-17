@@ -1,5 +1,10 @@
 'use strict';
 
 angular.module('sgbd', [
-  'ui.router'
+  'ui.router',
+  'ngResource',
+  /*
+  'angularMoment',
+  'ngMessages'
+  */
 ]);
