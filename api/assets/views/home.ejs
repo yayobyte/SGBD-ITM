@@ -4,7 +4,7 @@
       <img src="/images/logo350px_complete.png">
     </div>
   </div>
-<form name="searchForm">
+<form name="$ctrl.searchForm">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <div class="form-group">
@@ -26,19 +26,18 @@
       <div class="text-center">
         <div class="form-group">
             <div class="radio">
-
               <label>
-                <input type="radio" name="optionsRadios" value="title" checked="">
+                <input type="radio" name="optionsRadios" value="title" ng-model="$ctrl.radio" checked="">
                 T&iacute;tulo
               </label>
               &nbsp;&nbsp;&nbsp;
               <label>
-                <input type="radio" name="optionsRadios" value="abstract">
+                <input type="radio" name="optionsRadios" value="abstract" ng-model="$ctrl.radio">
                 Abstract
               </label>
               &nbsp;&nbsp;&nbsp;
               <label>
-                <input type="radio" name="optionsRadios"  value="label">
+                <input type="radio" name="optionsRadios"  value="label" ng-model="$ctrl.radio">
                 Label
               </label>
             </div>
@@ -48,38 +47,30 @@
   </div>
 </form>
   <br><br>
-  <div class="row">
+  <div class="row" ng-if="$ctrl.searched">
     <div class="col-md-12">
       <table class="table table-striped table-hover ">
         <thead>
         <tr>
           <th>#</th>
           <th>T&iacute;tulo</th>
-          <th>Autor</th>
+          <th>Fecha</th>
           <th>Usuario</th>
           <th>Abstract</th>
           <th>Label</th>
+          <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>1</td>
-          <td>Tesis de doctorado</td>
-          <td>Carlos Betancur</td>
-          <td>cbetancurt</td>
-          <td>tesis, doctorado, psicologia</td>
-          <td>tesis</td>
-          <td><span class="btn btn-success">Ver Adjuntos</span></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Informe de Ingesoft</td>
-          <td>Cristian Gutierrez</td>
-          <td>cgutierrez</td>
-          <td>ingesoft</td>
-          <td>casos de uso, trabajo de ingesoft</td>
-          <td><span class="btn btn-success">Ver Adjuntos</span></td>
-        </tr>
+          <tr ng-repeat="record in $ctrl.tableData">
+            <td ng-bind="record.id"></td>
+            <td><span class="text-warning" ng-bind="record.createdAt | date:'mediumDate'"></span></td>
+            <td ng-bind="record.title"></td>
+            <td><span class="label label-info" ng-bind="record.idUser.userName"></span></td>
+            <td ng-bind="record.abstract"></td>
+            <td ng-bind="record.label"></td>
+            <td><span class="btn btn-success">Ver Adjuntos</span></td>
+          </tr>
 
         </tbody>
       </table>

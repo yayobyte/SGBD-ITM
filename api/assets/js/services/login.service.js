@@ -10,7 +10,11 @@ angular.module('sgbd')
       }
     });
 
-    this.findByUserAndPassword = findByUserAndPassword;
+    var vm = this;
+
+    vm.loginData = {};
+
+    vm.findByUserAndPassword = findByUserAndPassword;
 
     function findByUserAndPassword (username, password) {
       return resource.getByUsername(

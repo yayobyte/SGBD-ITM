@@ -2,28 +2,36 @@ angular.module('sgbd')
 .controller('homeController', HomeController);
 
 function HomeController (
-  HomeService
+  HomeService,
+  LoginService,
+  $state
 ) {
   var vm = this;
-
   vm.search = search;
+  vm.init = init;
+  vm.init();
+
+  function init () {
+    /*
+    if (!LoginService.loginData.id){
+      $state.go('login');
+    }
+    */
+    vm.searched = false;
+    vm.radio = "title";
+  }
 
   function search () {
-    var query = this.searchBox;
+    var query = vm.searchBox;
+    var field = vm.radio;
 
-    vm.queryData = [
-      {
-        id : '1',
-        idUser : ''
-      }
-    ];
-
-
-    HomeService.search (query)
+    HomeService.search (query, field)
       .then(function (data) {
-
+        vm.tableData = data;
+        vm.searched = true;
       })
-      .catch();
-
+      .catch(function () {
+        alert ('Ocurrio un error al realizar la busqueda')
+      });
   }
 }

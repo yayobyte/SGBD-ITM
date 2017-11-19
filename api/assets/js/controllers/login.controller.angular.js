@@ -18,11 +18,11 @@ function LoginController (
     LoginService.findByUserAndPassword(vm.username, vm.password)
       .then(function (data) {
         if (data && data[0]) {
+          LoginService.loginData = data[0];
           $state.go('home');
         }else{
           alert('invalid username')
         }
       });
-
   }
 }

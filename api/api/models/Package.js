@@ -48,6 +48,11 @@ module.exports = {
       type: 'string',
       defaultsTo: '',
       columnName: 'titulo'
+    },
+    label : {
+      type : "string",
+      defaultsTo : '',
+      columnName : 'label'
     }
   }
 };

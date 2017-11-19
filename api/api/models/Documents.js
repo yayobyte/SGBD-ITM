@@ -46,11 +46,6 @@ module.exports = {
       defaultsTo: '',
       columnName : 'referencia'
     },
-    abstract : {
-      type: 'string',
-      defaultsTo: '',
-      columnName : 'abstract'
-    },
     title : {
       type: 'string',
       defaultsTo: '',
@@ -60,7 +55,8 @@ module.exports = {
     author : {
       type: 'string',
       defaultsTo: '',
-      columnName : 'autor'
+      columnName : 'autor',
+      model:'Author'
     },
     reasonToReject : {
       type: 'string',
