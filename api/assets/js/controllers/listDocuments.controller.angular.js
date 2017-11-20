@@ -2,12 +2,13 @@ angular.module('sgbd')
 .controller('listDocumentsController', HomeController);
 
 function HomeController (
-  $state,
-  ListDocumentsService
+  ListDocumentsService,
+  $scope
 ) {
   var vm = this;
   vm.search = search;
   vm.init = init;
+  vm.seePackage = seePackage;
 
   vm.init();
   vm.search();
@@ -28,6 +29,12 @@ function HomeController (
       .catch(function () {
         alert ('Ocurrio un error al realizar la busqueda')
       });
+  }
+
+  function seePackage (package) {
+    vm.actualPackageToModal = package;
+    $scope.$broadcast('queryDocuments', vm.actualPackageToModal);
+    $('#myModal').modal('show');
   }
 
 }

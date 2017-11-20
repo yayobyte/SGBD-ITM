@@ -15,7 +15,7 @@ module.exports = {
       primaryKey: true,
       columnName : 'id'
     },
-    idPackage : {
+    package : {
       type: 'integer',
       defaultsTo : '',
       columnName : 'id_paquete',
@@ -53,7 +53,7 @@ module.exports = {
       unique : true
     },
     author : {
-      type: 'string',
+      type: 'integer',
       defaultsTo: '',
       columnName : 'autor',
       model:'Author'

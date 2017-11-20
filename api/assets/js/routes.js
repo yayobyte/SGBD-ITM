@@ -45,6 +45,28 @@ angular.module('sgbd')
         }
       }
     })
+    .state('upload', {
+      url: '/upload',
+      title : 'Upload Documents',
+      views: {
+        'main' : {
+          controller : 'uploadDocumentsController',
+          controllerAs : '$ctrl',
+          templateUrl: '/views/uploadDocuments.ejs'
+        }
+      }
+    })
+    .state('admin', {
+      url: '/admin',
+      title : 'Administraci&oacute;n',
+      views: {
+        'main' : {
+          controller : 'adminController',
+          controllerAs : '$ctrl',
+          templateUrl: '/views/admin.ejs'
+        }
+      }
+    })
     .state('signup', {
       url: '/signup',
       title : 'Sign Up',

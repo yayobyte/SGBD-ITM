@@ -53,8 +53,8 @@
         <thead>
         <tr>
           <th>#</th>
-          <th>T&iacute;tulo</th>
           <th>Fecha</th>
+          <th>T&iacute;tulo</th>
           <th>Usuario</th>
           <th>Abstract</th>
           <th>Label</th>
@@ -69,7 +69,11 @@
             <td><span class="label label-info" ng-bind="record.idUser.userName"></span></td>
             <td ng-bind="record.abstract"></td>
             <td ng-bind="record.label"></td>
-            <td><span class="btn btn-success">Ver Adjuntos</span></td>
+            <td><span
+                class="btn btn-default"
+                ng-click="$ctrl.seePackage(record)"
+                data-target="#myModal"><span class="glyphicon glyphicon-play-circle"></span>&nbsp;
+                        Ver Adjuntos </span></td>
           </tr>
 
         </tbody>
@@ -77,6 +81,7 @@
     </div>
   </div>
 
+  <modal-component package="$ctrl.actualPackageToModal"></modal-component>
 
 
 </div>

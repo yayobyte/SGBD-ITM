@@ -21,14 +21,6 @@ module.exports = {
       columnName : 'id_usuario',
       model : 'User'
     },
-    uploadDate : {
-      type: 'string',
-      defaultsTo: function () {
-        return moment().toDate().toISOString();
-      },
-      columnName : 'fecha_subida',
-      required : true
-    },
     quantityOfDocuments : {
       type: 'string',
       defaultsTo: '',
