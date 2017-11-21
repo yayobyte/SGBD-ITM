@@ -3,92 +3,88 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <!-- Form-->
-      <form>
+      <form name="$ctrl.uploadForm">
         <fieldset>
           <legend>Informaci&oacute;n del paquete</legend>
           <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+            <div class="col-md-8 col-md-offset-2">
+              <div class="form-group" ng-class="{'has-error' : $ctrl.uploadForm.title.$invalid && $ctrl.uploadForm.title.$touched}">
+                <label for="inputTitle" class="col-lg-2 control-label">T&iacute;tulo del paquete</label>
                 <div class="col-lg-10">
-                  <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                <div class="col-lg-10">
-                  <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                  <input type="text" class="form-control" id="inputTitle" placeholder="Title"
+                         name="title"
+                         ng-model="$ctrl.formModels.title"
+                         required
+                  >
                 </div>
               </div>
             </div>
           </div>
-
-
-          <div class="form-group">
-            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-            <div class="col-lg-10">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Checkbox
-                </label>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" ng-class="{'has-error' : $ctrl.uploadForm.user.$invalid, 'has-success' : $ctrl.uploadForm.user.$valid}">
+                <label for="inputUser" class="col-lg-2 control-label">Usuario</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="inputUser" placeholder="Usuario"
+                         name="user"
+                         ng-model="$ctrl.formModels.user"
+                         readonly
+                         required
+                         >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" ng-class="{'has-error' : $ctrl.uploadForm.abstract.$invalid && $ctrl.uploadForm.abstract.$touched}">
+                <label for="inputAbstract" class="col-lg-2 control-label">Abstract</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="inputAbstract" placeholder="Abstract"
+                         name="abstract"
+                         ng-model="$ctrl.formModels.abstract"
+                         required
+                  >
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="form-group">
-            <label for="textArea" class="col-lg-2 control-label">Textarea</label>
-            <div class="col-lg-10">
-              <textarea class="form-control" rows="3" id="textArea"></textarea>
-              <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-lg-2 control-label">Radios</label>
-            <div class="col-lg-10">
-              <div class="radio">
-                <label>
-                  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                  Option one is this
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                  Option two can be something else
-                </label>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" ng-class="{'has-error' : $ctrl.uploadForm.label.$invalid && $ctrl.uploadForm.label.$touched}">
+                <label for="inputLabel" class="col-lg-2 control-label">Label</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="inputLabel" placeholder="Labels separados por espacios"
+                         name="label"
+                         ng-model="$ctrl.formModels.label"
+                         required
+                  >
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="form-group">
-            <label for="select" class="col-lg-2 control-label">Selects</label>
-            <div class="col-lg-10">
-              <select class="form-control" id="select">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-              <br>
-              <select multiple="" class="form-control">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
+            <div class="col-md-6">
+              <div class="form-group" ng-class="{'has-error' : $ctrl.uploadForm.description.$invalid && $ctrl.uploadForm.description.$touched}">
+                <label for="inputDescription" class="col-lg-2 control-label">Descripci&oacute;n</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="inputDescription" placeholder="Descripci&oacute;n"
+                         name="description"
+                         ng-model="$ctrl.formModels.description"
+                         required
+                  >
+                </div>
+              </div>
             </div>
           </div>
-
-          <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-              <button type="reset" class="btn btn-default">Cancel</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
+          <br>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <button type="submit" class="btn btn-default"
+                      ng-click="$ctrl.uploadForm.$valid && $ctrl.addPackage()"
+              >
+                <span class="glyphicon glyphicon-folder-open"></span>&nbsp;Crear Paquete</button>
+              <button type="button" class="btn btn-success"
+                      ng-click="$ctrl.addDocument()"
+                      ng-if="$ctrl.created"
+              >
+                <span class="glyphicon glyphicon-send"></span>&nbsp;Agregar documento</button>
             </div>
           </div>
 
@@ -103,4 +99,4 @@
 
 </div>
 
-<modal-component package="$ctrl.actualPackageToModal"></modal-component>
+<modal-create-component package="$ctrl.actualPackageToModal"></modal-create-component>

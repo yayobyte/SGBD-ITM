@@ -21,10 +21,15 @@
           <td ng-bind="record.abstract"></td>
           <td ng-bind="record.label"></td>
           <td><span
-              class="btn btn-default"
+              class="btn btn-default btn-sm"
               ng-click="$ctrl.seePackage(record)"
               data-target="#myModal"><span class="glyphicon glyphicon-play-circle"></span>&nbsp;
                         Ver Adjuntos </span></td>
+          <td><span
+              class="btn btn-success btn-sm"
+              ng-click="$ctrl.addDocument(record)"
+              data-target="#myModalCreate"><span class="glyphicon glyphicon-plus"></span>&nbsp;
+                        Agregar </span></td>
         </tr>
         </tbody>
       </table>
@@ -32,7 +37,7 @@
   </div>
 
   <modal-component package="$ctrl.actualPackageToModal"></modal-component>
-
+  <modal-create-component package="$ctrl.actualPackageToModalCreate"></modal-create-component>
 
 
 </div>

@@ -2,28 +2,34 @@ angular.module('sgbd')
 .controller('uploadDocumentsController', UploadDocumentsController);
 
 function UploadDocumentsController (
-  AdminService,
-  $scope,
-  $state,
-  LoginService
+  UploadService,
+  LoginService,
+  $scope
 ) {
   var vm = this;
-  vm.search = search;
+  vm.addPackage = addPackage;
   vm.init = init;
-  vm.approveDocument = approveDocument;
+  vm.addDocument = addDocument;
   vm.deleteDocument = deleteDocument;
+  vm.created = false;
   vm.adminPermissions = true;
+  vm.formModels = {};
   vm.init();
 
   function init () {
     //vm.adminPermissions = LoginService.loginData.userType ==='admin';
-    vm.search();
+    vm.formModels.user = LoginService.loginData.userName;
+    vm.formModels.idUser = parseInt(LoginService.loginData.id);
   }
 
-  function search () {
-      AdminService.search ()
+  function addPackage () {
+    var body = angular.copy(vm.formModels);
+    delete body.user;
+    UploadService.packageCreate (body)
         .then(function (data) {
           vm.tableData = data;
+          vm.created = true;
+          alert ('Documento agregado');
         })
       .catch(function () {
         alert ('Ocurrio un error al realizar la busqueda')
@@ -31,9 +37,9 @@ function UploadDocumentsController (
 
   }
 
-  function approveDocument (document) {
+  function deleteDocument (document) {
     var idDocument = document.id;
-    AdminService.approveDocument (idDocument)
+    UploadService.deleteDocument (idDocument)
       .then(function (data) {
         vm.tableData = data;
         vm.search();
@@ -43,15 +49,8 @@ function UploadDocumentsController (
       });
   }
 
-  function deleteDocument (document) {
-    var idDocument = document.id;
-    AdminService.deleteDocument (idDocument)
-      .then(function (data) {
-        vm.tableData = data;
-        vm.search();
-      })/*
-      .catch(function () {
-        alert ('Ocurrio un error al realizar la busqueda')
-      });*/
+  function addDocument () {
+    $scope.$broadcast('updatePackage', vm.tableData);
+    $('#myModalCreate').modal('show');
   }
 }

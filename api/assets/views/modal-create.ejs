@@ -1,0 +1,73 @@
+<!-- Modal -->
+<div class="modal fade" id="myModalCreate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><span>Agregar documento</span></h4>
+      </div>
+      <div class="modal-body">
+
+        <form class="form-horizontal" name="$ctrl.modalForm">
+          <fieldset>
+            <div class="form-group" ng-class="{'has-error' : $ctrl.modalForm.title.$invalid && $ctrl.modalForm.title.$touched}">
+              <label for="inputTitle" class="col-lg-2 control-label">T&iacute;tulo del documento</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputTitle" placeholder="Title"
+                       name="title"
+                       ng-model="$ctrl.modalFormModels.title"
+                       required
+                >
+              </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error' : $ctrl.modalForm.reference.$invalid && $ctrl.modalForm.reference.$touched }">
+              <label for="inputReference" class="col-lg-2 control-label">Referencia</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputReference" placeholder="Referencia"
+                       name="reference"
+                       ng-model="$ctrl.modalFormModels.reference"
+                       required
+                >
+              </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error' : $ctrl.modalForm.abstract.$invalid && $ctrl.modalForm.abstract.$touched }">
+              <label for="inputAbstract" class="col-lg-2 control-label">Abstract</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputAbstract" placeholder="Abstract"
+                       name="abstract"
+                       ng-model="$ctrl.modalFormModels.abstract"
+                       required
+                >
+              </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error' : $ctrl.modalForm.documentType.$invalid && $ctrl.modalForm.documentType.$touched }">
+              <label for="inputDocumentType" class="col-lg-2 control-label">Tipo de documento</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputDocumentType" placeholder="Tipo de documento"
+                       name="documentType"
+                       ng-model="$ctrl.modalFormModels.documentType"
+                       required
+                >
+              </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error' : $ctrl.modalForm.route.$invalid && $ctrl.modalForm.route.$touched }">
+              <label for="inputRoute" class="col-lg-2 control-label">Ruta del documento</label>
+              <div class="col-lg-10">
+                <input type="file" class="form-control" id="inputRoute" placeholder="Archivo"
+                       name="documentRoute"
+                       ng-model="$ctrl.modalFormModels.route"
+                       required
+                >
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <span type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Cerrar</span>
+        <span type="submit" class="btn btn-success" data-dismiss="modal" ng-click="$ctrl.addDocument()"><span class="glyphicon glyphicon-ok"></span>&nbsp;Guardar</span>
+      </div>
+    </div>
+  </div>
+</div>

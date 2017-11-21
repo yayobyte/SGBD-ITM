@@ -10,12 +10,14 @@ angular.module('sgbd')
 function modalController (
   ModalService,
   $scope,
-  $state
+  $state,
+  APIserver
 ) {
   var vm = this;
   vm.download = download;
   $scope.$on('queryDocuments', search);
   vm.state = $state.current.name;
+  vm.apiPath = APIserver;
 
   function search (event, package) {
       var idPackage = package.id;
@@ -27,6 +29,7 @@ function modalController (
   }
 
   function download (document) {
+
     alert('Downloading')
   }
 }

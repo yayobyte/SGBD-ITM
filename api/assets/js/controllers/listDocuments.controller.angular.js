@@ -9,6 +9,7 @@ function HomeController (
   vm.search = search;
   vm.init = init;
   vm.seePackage = seePackage;
+  vm.addDocument = addDocument;
 
   vm.init();
   vm.search();
@@ -35,6 +36,12 @@ function HomeController (
     vm.actualPackageToModal = package;
     $scope.$broadcast('queryDocuments', vm.actualPackageToModal);
     $('#myModal').modal('show');
+  }
+
+  function addDocument (package) {
+    vm.actualPackageToModalCreate = package;
+    $scope.$broadcast('updatePackage', vm.actualPackageToModalCreate);
+    $('#myModalCreate').modal('show');
   }
 
 }

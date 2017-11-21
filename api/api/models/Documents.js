@@ -37,7 +37,7 @@ module.exports = {
       columnName : 'tipo_de_documento'
     },
     route : {
-      type: 'boolean',
+      type: 'string',
       defaultsTo: '',
       columnName : 'ubicacion'
     },

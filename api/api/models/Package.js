@@ -21,11 +21,6 @@ module.exports = {
       columnName : 'id_usuario',
       model : 'User'
     },
-    quantityOfDocuments : {
-      type: 'string',
-      defaultsTo: '',
-      columnName : 'cantidad_de_documentos'
-    },
     description : {
       type: 'string',
       defaultsTo: '',

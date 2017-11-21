@@ -27,11 +27,10 @@
             <td><span class="text-info" ng-bind="record.author.authorName"></span></td>
             <td ng-bind="record.documentType"></td>
             <td ng-bind="record.reference"></td>
-            <td><span class="btn btn-sm"
+            <td><a href="{{$ctrl.apiPath + 'images/files/' + record.route}}" class="btn btn-sm"
                       ng-class="{ 'btn-success' : record.approved, 'btn-warning' : !record.approved}"
-                      ng-click="$ctrl.download(record)"
-                      ng-disabled="{{!record.approved}}">
-                <span class="glyphicon glyphicon-save"></span>&nbsp;Descargar</span></td>
+                      ng-disabled="{{!record.approved}}" target="_blank">
+                <span class="glyphicon glyphicon-save"></span>&nbsp;Descargar</a></td>
             </td>
             <td>
               <span ng-if="$ctrl.state=='list'"
